@@ -19,7 +19,7 @@ const Nav = styled.nav`
 
   &:hover {
     border-radius: 0;
-    box-shadow: 0 0.25rem 0.25rem #aa9;
+    box-shadow: 0.1rem 0.1rem 0 #ffe, 0.3rem 0.3rem 0 #eed;
     transition: border-radius 0.25s;
   }
 `;

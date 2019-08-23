@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 
 const NavLinks = styled.ul`
@@ -17,6 +18,7 @@ const NavLinks = styled.ul`
     a {
       color: #ffe;
       text-shadow: 0px 2px 0px #d88;
+      text-decoration: none;
     }
 
     &:before {
@@ -26,7 +28,7 @@ const NavLinks = styled.ul`
 
 export default () => (
   <NavLinks>
-    <li>One</li>
+    <li><Link to="/">Home</Link></li>
     <li>Two</li>
     <li>Three</li>
   </NavLinks>

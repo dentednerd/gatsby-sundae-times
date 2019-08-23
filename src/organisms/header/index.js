@@ -8,7 +8,7 @@ const Header = styled.header`
   padding: 0;
 
   h1, h1 a {
-    border-bottom: double 3px #ddc;
+    border-bottom: double 3px #edd;
     width: 100%;
     height: 90px;
     overflow: hidden;
@@ -17,7 +17,7 @@ const Header = styled.header`
     font: normal 4rem Satisfy, cursive;
     line-height: 100px;
     color: #acc;
-    text-shadow: 1px 1px 0px #ffe, 3px 3px 0px #eed, 5px 5px 0px #ffe;
+    text-shadow: 1px 1px 0px #ffe, 3px 3px 0px #eed;
   }
 
   p {

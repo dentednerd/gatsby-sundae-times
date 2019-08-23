@@ -1,18 +1,37 @@
 import React from "react";
-import styled from "styled-components";
-import Header from "../organisms/header";
-import Post from "../organisms/post";
-import "./global.css";
+import { graphql } from "gatsby";
+import Layout from "../organisms/layout";
+import Card from "../organisms/Card";
 
-const Container = styled.div`
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 1em;
-`;
-
-export default () => (
-  <Container>
-    <Header />
-    <Post />
-  </Container>
+export default ({ data }) => (
+  <Layout>
+    {data.allMarkdownRemark.edges.map(({ node }) => (
+      <Card key={node.id} article={node} />
+    ))}
+    
+  </Layout>
 );
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }){
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date
+            featuredImage {
+              relativePath
+            }
+          }
+          excerpt
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`
