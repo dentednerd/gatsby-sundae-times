@@ -1,3 +1,16 @@
-import React from "react"
+import React from "react";
+import styled from "styled-components";
+import Header from '../organisms/header';
+import './global.css';
 
-export default () => <div>Hello world!</div>
+const Container = styled.div`
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 1em;
+`;
+
+export default () => (
+  <Container>
+    <Header />
+  </Container>
+);
