@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Header from '../organisms/header';
-import './global.css';
+import Header from "../organisms/header";
+import Post from "../organisms/post";
+import "./global.css";
 
 const Container = styled.div`
   max-width: 1024px;
@@ -12,5 +13,6 @@ const Container = styled.div`
 export default () => (
   <Container>
     <Header />
+    <Post />
   </Container>
 );
