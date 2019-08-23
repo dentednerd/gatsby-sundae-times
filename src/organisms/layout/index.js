@@ -9,9 +9,9 @@ const Layout = styled.div`
   padding: 1em;
 `;
 
-export default ({ children }) => (
+export default (props) => (
   <Layout>
-    <Header />
-    {children}
+    <Header data={props.data} />
+    {props.children}
   </Layout>
 );

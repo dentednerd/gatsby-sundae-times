@@ -15,10 +15,11 @@ const Article = styled.article`
 
 export default ({ data }) => {
   const post = data.markdownRemark;
+  console.log('Post > post > title', post.frontmatter.title);
   return (
-    <Layout>
+    <Layout data={data.site.siteMetadata}>
       <Article>
-        <PostImage image={post.frontmatter.featuredImage.childImageSharp.sizes.src} alt={post.frontmatter.title} />
+        {post.frontmatter.featuredImage && <PostImage image={post.frontmatter.featuredImage.childImageSharp.sizes.src} alt={post.frontmatter.title} />}
         <PostHeader title={post.frontmatter.title}  />
         <PostContent content={post.html} />
       </Article>
@@ -27,6 +28,16 @@ export default ({ data }) => {
 
 export const query = graphql`
   query($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        description
+        navLinks {
+          name
+          slug
+        }
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {

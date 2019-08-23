@@ -24,8 +24,8 @@ const Nav = styled.nav`
   }
 `;
 
-export default () => (
+export default (props) => (
   <Nav>
-    <NavLinks />
+    <NavLinks navLinks={props.navLinks}/>
   </Nav>
 );

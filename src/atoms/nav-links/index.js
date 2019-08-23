@@ -26,10 +26,10 @@ const NavLinks = styled.ul`
     }
 `;
 
-export default () => (
+export default (props) => (
   <NavLinks>
-    <li><Link to="/">Home</Link></li>
-    <li>Two</li>
-    <li>Three</li>
+    {props.navLinks.map((link) => (
+      <li key={link.name}><Link to={link.slug}>{link.name}</Link></li>
+    ))}
   </NavLinks>
 );

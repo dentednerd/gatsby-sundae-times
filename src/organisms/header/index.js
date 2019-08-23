@@ -13,7 +13,7 @@ const Header = styled.header`
     height: 90px;
     overflow: hidden;
     margin: 0;
-    padding: 0 0.25rem;
+    padding: 0 0.25rem 0.5rem;
     font: normal 4rem Satisfy, cursive;
     line-height: 100px;
     color: #acc;
@@ -30,10 +30,13 @@ const Header = styled.header`
   }
 `;
 
-export default () => (
-  <Header>
-    <h1>Sundae Times</h1>
-    <p>taglines for days mates</p>
-    <Nav />
-  </Header>
-);
+export default (props) => {
+  const { title, description, navLinks } = props.data;
+  return (
+    <Header>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <Nav navLinks={navLinks} />
+    </Header>
+  );
+};

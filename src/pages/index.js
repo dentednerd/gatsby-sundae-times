@@ -4,7 +4,7 @@ import Layout from "../organisms/layout";
 import Card from "../organisms/Card";
 
 export default ({ data }) => (
-  <Layout>
+  <Layout data={data.site.siteMetadata}>
     {data.allMarkdownRemark.edges.map(({ node }) => (
       <Card key={node.id} article={node} />
     ))}
@@ -14,6 +14,16 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+        description
+        navLinks {
+          name
+          slug
+        }
+      }
+    }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }){
       totalCount
       edges {
