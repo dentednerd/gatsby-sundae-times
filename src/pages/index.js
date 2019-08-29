@@ -33,7 +33,11 @@ export const query = graphql`
             title
             date
             featuredImage {
-              relativePath
+              childImageSharp {
+                sizes(maxWidth: 1024) {
+                  src
+                }
+              }
             }
           }
           excerpt
